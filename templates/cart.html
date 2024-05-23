@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            text-align: center.
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .cart-item {
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding: 10px;
+            text-align: center;
+        }
+        .cart-item img {
+            max-width: 100%;
+            height: auto.
+        }
+        .cart-item h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .cart-item p {
+            color: #888;
+        }
+        .cart-item .price {
+            color: #b12704;
+            font-size: 1.2em;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0.
+            text-align: center.
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .clear-cart {
+            margin-top: 20px;
+            text-align: center.
+        }
+        .clear-cart button {
+            padding: 10px 20px.
+            font-size: 1em.
+            background-color: #b12704.
+            color: #fff.
+            border: none.
+            cursor: pointer.
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Shopping Cart</h1>
+    </header>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/cart">Go to Cart</a>
+    </nav>
+    <div class="container">
+        {% for product in products %}
+        <div class="cart-item">
+            <img src="{{ product[4] }}" alt="{{ product[1] }}">
+            <h2>{{ product[1] }}</h2>
+            <p>{{ product[2] }}</p>
+            <p class="price">${{ product[3] }}</p>
+        </div>
+        {% endfor %}
+        <div class="clear-cart">
+            <form action="/clear_cart" method="GET">
+                <button type="submit">Clear Cart</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 eCommerce Website</p>
+    </footer>
+</body>
+</html>
+
